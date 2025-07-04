@@ -12,7 +12,9 @@ El objetivo de este proyecto es **clasificar registros de ritmo cardíaco** (Nor
 Project_ML/
 │
 ├── data/
-│   └── ecg_rr_features_curado.csv      # Dataset principal con las características extraídas
+|   |__Datos_Proyecto
+|       |_ ACÁ LOS DATOS .MAT Y .HEA
+│   └── ecg_rr_features_curado.csv      # 
 │
 ├── notebooks/
 │   ├── etapa1_explorar_y_visualizar.ipynb   # Análisis exploratorio y visualización de datos
@@ -23,23 +25,16 @@ Project_ML/
 
 ---
 
-## Descripción de los datos
+## Descripción de los datos y procesamiento
 
-- **Archivo:** `data/ecg_rr_features_curado.csv`
-- **Filas:** 30 muestras
-- **Columnas:**
+- **Fuente de datos:** Registros ECG en formato WFDB (`.mat` y `.hea`)
+- **Procesamiento:** Extracción de características RR utilizando NeuroKit2 
+- **Muestras procesadas:** 54 registros (27 Normal, 27 AFib)
+- **Características extraídas:**
   - `mean_rr`: Promedio del intervalo RR (tiempo entre latidos)
   - `std_rr`: Desviación estándar del intervalo RR
   - `skew_rr`: Asimetría de la distribución de intervalos RR
   - `kurt_rr`: Curtosis de la distribución de intervalos RR
-  - `label`: Clase objetivo (`Normal` o `AFib`)
-- **Clases:**  
-  - `Normal`: 18 muestras  
-  - `AFib`: 12 muestras  
-- **Notas:**  
-  - No hay valores nulos  
-  - El dataset es pequeño y ligeramente desbalanceado  
-  - Según el análisis exploratorio, `std_rr` y `kurt_rr` son las variables más discriminantes
 
 ---
 
@@ -50,18 +45,8 @@ Project_ML/
 
 ### Instalación de dependencias
 
-Ejecuta en la terminal (desde la carpeta raíz del proyecto):
-
-```
-pip install pandas scikit-learn matplotlib
-```
-
-Opcional para mostrar tablas bonitas:
-```
-pip install tabulate
-```
-
----
+```bash
+pip install pandas numpy scipy scikit-learn matplotlib wfdb neurokit2 seaborn
 
 ## Ejecución
 
